@@ -16,6 +16,7 @@ metadata:
   namespace: flux-system
 spec:
   targetNamespace: datadog
+  serviceAccountName: kustomize-controller
   chart:
     spec:
       chart: datadog-operator
