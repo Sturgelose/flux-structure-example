@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: hello-world
+    namespace: flux-system
+stringData:
+    FOO: bar
