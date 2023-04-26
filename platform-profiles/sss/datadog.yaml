@@ -1,24 +1,16 @@
-apiVersion: v1
-kind: Secret
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
 metadata:
-    name: hello-world-vsomething
-    namespace: flux-system
-stringData:
-    FOO: bar
-
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: datadog-operator
-# spec:
-#   interval: 15m
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   path: ./platform/datadog-operator/sss
-#   prune: true
-#   wait: true
-#   timeout: 5m
+  name: datadog-operator
+spec:
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./platform/demo
+  prune: true
+  wait: true
+  timeout: 5m
 # ---
 # apiVersion: kustomize.toolkit.fluxcd.io/v1
 # kind: Kustomization
