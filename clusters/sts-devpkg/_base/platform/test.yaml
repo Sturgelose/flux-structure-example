@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: hello-world
+    name: hello-world-v2
     namespace: flux-system
 stringData:
     FOO: bar
