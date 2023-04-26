@@ -24,7 +24,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: datadog
-      version: '1.0.*'
+      version: '1.0.1'
   interval: 15m
   values:
     apiKeyExistingSecret: datadog-secret
