@@ -1,28 +1,30 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: demo
+  name: datadog-operator
   namespace: flux-system
 spec:
   interval: 15m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./platform/demo
+  path: ./platform/datadog-operator/sss
   prune: true
   wait: true
   timeout: 5m
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: datadog-agent
-# spec:
-#   dependsOn:
-#     - name: datadog-operator
-#   interval: 15m
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   path: ./platform/datadog-agent/sss
-#   prune: true
+
+---
+
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: datadog-agent
+spec:
+  dependsOn:
+    - name: datadog-operator
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./platform/datadog-agent/sss
+  prune: true
