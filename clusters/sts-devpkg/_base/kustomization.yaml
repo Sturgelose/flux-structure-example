@@ -1,8 +1,8 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
-resources: []
+resources:
 # Profile
-#- ../../../platform-profiles/sss
+- ../../../platform-profiles/sss
 
 # Tenant(s)/Application(s)
 #- ../../../tenants/sts-cloud
