@@ -8,9 +8,11 @@ resources:
 patches:
   # Patch to add common labels in all namespaces
   # TODO: Move to a component or reusable kustomization
-  - patch: | 
+  - patch: |-
+      apiVersion: v1
       kind: Namespace
       metadata:
+        name: not-used-at-all
         labels:
           type: platform
           owner: devops
