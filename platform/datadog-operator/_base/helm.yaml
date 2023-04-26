@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: datadog
-  namespace: datadog
+  namespace: flux-system
 spec:
   interval: 4h
   url: https://helm.datadoghq.com
@@ -13,7 +13,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: datadog-operator
-  namespace: datadog
+  namespace: flux-system
 spec:
   targetNamespace: datadog
   chart:
