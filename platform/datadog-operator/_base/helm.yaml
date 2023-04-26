@@ -16,7 +16,6 @@ metadata:
   namespace: datadog
 spec:
   targetNamespace: datadog
-  serviceAccountName: kustomize-controller
   chart:
     spec:
       chart: datadog-operator
