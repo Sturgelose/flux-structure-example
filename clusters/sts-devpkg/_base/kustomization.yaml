@@ -5,7 +5,7 @@ resources:
 - ../../../platform-profiles/sss
 
 # Tenant(s)/Application(s)
-- ../../../tenants/sts-cloud/sss-wcs-dev
+- ../../../tenants/sts-cloud
 
 # Platform secrets
 - cluster-secrets.yaml
