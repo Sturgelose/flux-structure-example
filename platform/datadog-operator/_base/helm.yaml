@@ -23,7 +23,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: datadog
-      version: '1.0.x'
+      version: '>=1.0.0 <1.2.0'
   interval: 15m
   values:
     image:
