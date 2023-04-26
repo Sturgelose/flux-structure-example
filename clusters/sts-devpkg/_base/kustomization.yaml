@@ -8,4 +8,4 @@ resources:
 - ../../../tenants/sts-cloud
 
 # Platform secrets
-- cluster-secrets.yaml
+#- cluster-secrets.yaml
