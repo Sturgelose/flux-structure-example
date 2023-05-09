@@ -13,6 +13,14 @@ spec:
   prune: true
   wait: true
   timeout: 5m
+  postBuild:
+    substitute:
+      namespace_name: metallb
+    substituteFrom:
+      - kind: ConfigMap
+        name: platform-namespace-vars
+        # Use this ConfigMap if it exists, but proceed if it doesn't.
+        optional: true
 
 ---
 
@@ -33,3 +41,11 @@ spec:
   prune: true
   wait: true
   timeout: 5m
+  postBuild:
+    substitute:
+      namespace_name: ingress-nginx
+    substituteFrom:
+      - kind: ConfigMap
+        name: platform-namespace-vars
+        # Use this ConfigMap if it exists, but proceed if it doesn't.
+        optional: true

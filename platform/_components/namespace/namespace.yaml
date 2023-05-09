@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ${namespace_name:=default}
+  labels:
+    type: ${namespace_type:=platform}
+    owner: ${namespace_owner:=devops}

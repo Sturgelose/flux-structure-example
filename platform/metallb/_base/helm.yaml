@@ -15,7 +15,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
-  targetNamespace: metallb
+  targetNamespace: ${namespace_name:=default}
   serviceAccountName: kustomize-controller
   chart:
     spec:

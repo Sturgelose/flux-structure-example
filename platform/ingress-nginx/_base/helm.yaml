@@ -15,7 +15,7 @@ metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
-  targetNamespace: ingress-nginx
+  targetNamespace: ${namespace_name:=default}
   serviceAccountName: kustomize-controller
   chart:
     spec:
