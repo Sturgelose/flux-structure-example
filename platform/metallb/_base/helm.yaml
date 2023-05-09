@@ -4,6 +4,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
+  type: oci
   interval: 4h
   url: oci://registry-1.docker.io/bitnamicharts/metallb
 
