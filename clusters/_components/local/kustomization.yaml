@@ -4,6 +4,7 @@ resources:
 - namespaces.yaml
 - datadog.yaml
 - cert-manager.yaml
+- ingress-nginx.yaml
 
 patches:
   # Patch to add common labels in all namespaces
