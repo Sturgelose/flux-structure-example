@@ -3,6 +3,7 @@ kind: Component
 resources:
 - namespaces.yaml
 - datadog.yaml
+- cert-manager.yaml
 
 patches:
   # Patch to add common labels in all namespaces
