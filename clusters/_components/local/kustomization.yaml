@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+resources:
+- namespaces.yaml
+- datadog.yaml
+
+patches:
+  # Patch to add common labels in all namespaces
+  # TODO: Move to a component or reusable kustomization
+  - patch: |-
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: not-used-at-all
+        labels:
+          type: platform
+          owner: devops
+    target:
+      kind: Namespace

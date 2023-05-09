@@ -1,0 +1,7 @@
+
+# DataDog Operator and Agent namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: datadog
+

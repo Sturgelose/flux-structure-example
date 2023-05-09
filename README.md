@@ -57,6 +57,8 @@ And see the whole tree of installed resources and flows with `flux tree kustomiz
 They are not removed if we uninstall the chart, so there is no potential data loss implied.
 In upgrades, we can stop the reconciliation, update manually and make sure upgrades are fine.
 
+Helm charts including CRDs should only be installed by platform components. Never by applications or we might end in conflicts.
+
 ### Secrets and Namespaces are created outside of flows
 
 Otherwise, we are forced to maintain states and files per each cluster and flux flow.
@@ -65,6 +67,8 @@ This can be quite inviable and instead this allows us to:
 * Make sure none deletes namespaces, provoking data loss
 * People cannot move services between namespaces (so we can warn them that they will lose)
 * Keep all the cluster secrets together, so we have a single file per cluster, conveniently together. This allows easy update of secrets.
+* (WIP) Flux Flows can only install things in the namespace they are declared. Flux-system is the one responsible to install other flows.  
+  This means that applications should not require to be aware or decide of where they are installed. It's the platform deciding for them.
 
 ### Try to be DRY
 
@@ -74,3 +78,5 @@ Make use of components or overlays to apply similar configurations and guardrail
 * Tolerations and taints for most of the applications
 * Potentially, RBAC policies for some namespaces, that should be standard
 * Avoid having each cluster individually defined. Let's standardize what we deploy and let's just configure the individual secrets they require.
+
+### Differ
