@@ -19,7 +19,7 @@ spec:
   serviceAccountName: kustomize-controller
   chart:
     spec:
-      chart: datadog-operator
+      chart: ingress-nginx
       interval: 15m
       sourceRef:
         kind: HelmRepository
