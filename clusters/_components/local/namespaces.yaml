@@ -5,3 +5,10 @@ kind: Namespace
 metadata:
   name: datadog
 
+---
+
+# CertManager namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
