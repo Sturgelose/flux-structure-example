@@ -15,8 +15,8 @@ metadata:
 
 ---
 
-# NginxIngress namespace
+# IngressNginx namespace
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: nginx-ingress
+  name: ingress-nginx
