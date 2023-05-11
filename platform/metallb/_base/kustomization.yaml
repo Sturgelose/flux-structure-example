@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - helm.yaml
 components:
-  - "../../_components/namespace"
+- "../../_components/namespace"
 patches:
   # Patch to add pod-security labels into namespace
   # Needed by MetalLb
@@ -12,9 +12,9 @@ patches:
       kind: Namespace
       metadata:
         name: not-used-at-all
-          labels:
-            pod-security.kubernetes.io/enforce: privileged
-            pod-security.kubernetes.io/audit: privileged
-            pod-security.kubernetes.io/warn: privileged
+        labels:
+          pod-security.kubernetes.io/enforce: privileged
+          pod-security.kubernetes.io/audit: privileged
+          pod-security.kubernetes.io/warn: privileged
     target:
       kind: Namespace
