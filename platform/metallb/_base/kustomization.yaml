@@ -4,3 +4,5 @@ resources:
 - helm.yaml
 components:
   - "../../_components/namespace"
+patchesStrategicMerge:
+  - ""
