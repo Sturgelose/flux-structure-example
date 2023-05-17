@@ -5,4 +5,3 @@ components:
   - ../../../../tenants/sts-cloud
 resources:
   - secrets.yaml
-# TODO: Add tenants resource here

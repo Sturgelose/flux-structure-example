@@ -1,8 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 components:
-  - ../../_components/local
-  - ../../../tenants/sts-cloud
+  - ../../../_components/local
+  - ../../../../tenants/sts-cloud
 resources:
   - secrets.yaml
-# TODO: Add tenants resource here
