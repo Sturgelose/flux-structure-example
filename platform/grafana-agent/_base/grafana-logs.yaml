@@ -1,0 +1,71 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: logs-secret
+  namespace: grafana
+type: Opaque
+stringData:
+  password: ${grafana_logs_pass}
+  username: ${grafana_logs_user}
+---
+apiVersion: monitoring.grafana.com/v1alpha1
+kind: LogsInstance
+metadata:
+  labels:
+    agent: grafana-agent
+  name: grafana-agent-logs
+  namespace: grafana
+spec:
+  clients:
+    - basicAuth:
+        password:
+          key: password
+          name: logs-secret
+        username:
+          key: username
+          name: logs-secret
+      externalLabels:
+        cluster: my-cluster
+      url: https://logs-prod-012.grafana.net/loki/api/v1/push
+  podLogsNamespaceSelector: {}
+  podLogsSelector:
+    matchLabels:
+      instance: primary
+---
+apiVersion: monitoring.grafana.com/v1alpha1
+kind: PodLogs
+metadata:
+  labels:
+    instance: primary
+  name: kubernetes-logs
+  namespace: grafana
+spec:
+  namespaceSelector:
+    any: true
+  pipelineStages:
+    - cri: {}
+  relabelings:
+    - sourceLabels:
+        - __meta_kubernetes_pod_node_name
+      targetLabel: __host__
+    - action: replace
+      sourceLabels:
+        - __meta_kubernetes_namespace
+      targetLabel: namespace
+    - action: replace
+      sourceLabels:
+        - __meta_kubernetes_pod_name
+      targetLabel: pod
+    - action: replace
+      sourceLabels:
+        - __meta_kubernetes_container_name
+      targetLabel: container
+    - replacement: /var/log/pods/*$1/*.log
+      separator: /
+      sourceLabels:
+        - __meta_kubernetes_pod_uid
+        - __meta_kubernetes_pod_container_name
+      targetLabel: __path__
+  selector:
+    matchLabels: {}
