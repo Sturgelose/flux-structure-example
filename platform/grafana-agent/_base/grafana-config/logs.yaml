@@ -6,8 +6,8 @@ metadata:
   namespace: grafana
 type: Opaque
 stringData:
-  password: ${grafana_logs_pass}
-  username: ${grafana_logs_user}
+  password: "${grafana_logs_pass}"
+  username: "${grafana_logs_user}"
 ---
 apiVersion: monitoring.grafana.com/v1alpha1
 kind: LogsInstance

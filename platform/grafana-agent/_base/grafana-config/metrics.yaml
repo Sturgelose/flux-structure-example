@@ -6,8 +6,8 @@ metadata:
   namespace: grafana
 type: Opaque
 stringData:
-  password: ${grafana_metrics_pass}
-  username: ${grafana_metrics_user}
+  password: "${grafana_metrics_pass}"
+  username: "${grafana_metrics_user}"
 ---
 apiVersion: monitoring.grafana.com/v1alpha1
 kind: Integration
