@@ -5,6 +5,4 @@ resources:
 - events.yaml
 - logs.yaml
 - metrics.yaml
-components:
-  - "../../_components/namespace"
 namespace: ${namespace_name:=default}
