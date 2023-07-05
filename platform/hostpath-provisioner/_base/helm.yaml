@@ -21,7 +21,7 @@ spec:
     spec:
       chart: hostpath-provisioner
       interval: 1h
-      version: v1.11.2
+      version: 0.2.13
       sourceRef:
         kind: HelmRepository
         name: hostpath-provisioner
