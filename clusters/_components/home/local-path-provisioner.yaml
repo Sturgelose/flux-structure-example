@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: hostpath-provisioner
+  name: local-path-provisioner
   namespace: flux-system
 spec:
   interval: 15m
@@ -9,13 +9,13 @@ spec:
     kind: GitRepository
     name: flux-system
   serviceAccountName: kustomize-controller
-  path: ./platform/hostpath-provisioner/home
+  path: ./platform/local-path-provisioner/home
   prune: true
   wait: true
   timeout: 5m
   postBuild:
     substitute:
-      namespace_name: hostpath-provisioner
+      namespace_name: local-path-provisioner
     substituteFrom:
       - kind: ConfigMap
         name: platform-namespace-vars
