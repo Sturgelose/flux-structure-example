@@ -27,5 +27,6 @@ spec:
         name: hostpath-provisioner
   interval: 1h
   values:
+    nodeHostPath: "/opt/hotpath"
     storageClass:
       name: default
