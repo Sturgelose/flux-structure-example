@@ -3,5 +3,5 @@ kind: Component
 resources:
 - cert-manager.yaml
 - grafana.yaml
-- hostpath-provisioner.yaml
+- local-path-provisioner.yaml
 - ingress-nginx.yaml
