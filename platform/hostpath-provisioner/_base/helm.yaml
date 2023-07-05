@@ -29,7 +29,7 @@ spec:
   values:
     image:
       repository: "rancher/local-path-provisioner"
-      tag: "v0.0.24-arm64"
+      tag: "v0.0.24"
     nodeHostPath: "/opt/hotpath"
     storageClass:
       name: default
