@@ -27,6 +27,8 @@ spec:
         name: hostpath-provisioner
   interval: 1h
   values:
+    image:
+      repository: "rancher/local-path-provisioner"
     nodeHostPath: "/opt/hotpath"
     storageClass:
       name: default
