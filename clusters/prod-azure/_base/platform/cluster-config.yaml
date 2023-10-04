@@ -1,0 +1,3 @@
+# Configmap that contains all the info to configure all the tenants
+
+# This should contain, the thruples of tenants, the profile name and the cluster name/env.

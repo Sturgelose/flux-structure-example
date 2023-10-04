@@ -3,7 +3,7 @@ kind: ServiceAccount
 metadata:
   labels:
     toolkit.fluxcd.io/tenant: ${namespace_owner}
-  name: ${namespace_name}
+  name: fluxcd
   namespace: ${namespace_name}
 
 ---

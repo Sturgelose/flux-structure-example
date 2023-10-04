@@ -1,0 +1,4 @@
+helm        latest
+helm-docs   latest
+kubeconform latest
+helm-ct     latest

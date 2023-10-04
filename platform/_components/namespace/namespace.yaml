@@ -3,5 +3,8 @@ kind: Namespace
 metadata:
   name: ${namespace_name:=default}
   labels:
-    type: platform
+    type: undefined
     owner: ${namespace_owner:=devops}
+  annotations:
+    scheduler.alpha.kubernetes.io/node-selector: "kubernetes.azure.com/mode=system"
+    scheduler.alpha.kubernetes.io/defaultTolerations: '[{"Key": "CriticalAddonsOnly", "Operator": "Equal", "Value": "true", "Effect": "NoSchedule"},{"Key": "kubernetes.azure.com/scalesetpriority", "Operator": "Equal", "Value": "spot", "Effect": "NoSchedule"}]'
