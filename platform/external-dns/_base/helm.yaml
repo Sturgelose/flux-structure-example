@@ -32,3 +32,4 @@ spec:
     serviceAccount:
       annotations:
         azure.workload.identity/client-id: ${APPLICATION_OR_USER_ASSIGNED_IDENTITY_TENANT_ID}
+    priorityClassName: 'system-cluster-critical'

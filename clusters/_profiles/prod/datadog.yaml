@@ -1,0 +1,51 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: datadog-operator
+  namespace: flux-system
+spec:
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  serviceAccountName: kustomize-controller
+  path: ./platform/datadog-operator/_base
+  prune: true
+  wait: true
+  timeout: 5m
+  postBuild:
+    substitute:
+      namespace_name: datadog
+    substituteFrom:
+      - kind: ConfigMap
+        name: platform-namespace-vars
+        # Use this ConfigMap if it exists, but proceed if it doesn't.
+        optional: true
+      - kind: Secret
+        name: cluster-secrets
+
+---
+
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: datadog-agent
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: datadog-operator
+  interval: 15m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  serviceAccountName: kustomize-controller
+  path: ./platform/datadog-agent/_base
+  prune: true
+  postBuild:
+    substitute:
+      namespace_name: datadog
+    substituteFrom:
+      - kind: ConfigMap
+        name: platform-namespace-vars
+        # Use this ConfigMap if it exists, but proceed if it doesn't.
+        optional: true

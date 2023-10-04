@@ -52,7 +52,7 @@ And see the whole tree of installed resources and flows with `flux tree kustomiz
 
 ## Design Decisions
 
-### CRDs are installed with the helm charts. 
+### CRDs are installed with the helm charts
 
 They are not removed if we uninstall the chart, so there is no potential data loss implied.
 In upgrades, we can stop the reconciliation, update manually and make sure upgrades are fine.
@@ -69,6 +69,20 @@ This can be quite inviable and instead this allows us to:
 * Keep all the cluster secrets together, so we have a single file per cluster, conveniently together. This allows easy update of secrets.
 * (WIP) Flux Flows can only install things in the namespace they are declared. Flux-system is the one responsible to install other flows.  
   This means that applications should not require to be aware or decide of where they are installed. It's the platform deciding for them.
+
+### Cluster Operators control which repos can provide Flux configuration
+
+This repo contains references to other flux repos, and the responsible ones to maintain them are the DevOps team.
+They do call other repositories depending on the tenants that need to use the cluster, and delegate specific namespaces to specific project/teams.
+
+In the end, this needs to be thruple: namespace, remote_repo and project_name (path in remote_repo).
+
+Thus, we are managing them by using a HelmChart stored in this same repo and that exposes these three parameters.
+And because HelmCharts are good at iterating over lists, we will make use of the charts to create all the namespaces and tenants at once.
+
+Each namespace comes with its own service account for flux and sets up the RBAC for the right team.
+
+Kustomizations are not so good at it!
 
 ### Try to be DRY
 

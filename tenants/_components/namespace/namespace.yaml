@@ -5,3 +5,6 @@ metadata:
   labels:
     type: app
     owner: ${namespace_owner}
+  annotations:
+    scheduler.alpha.kubernetes.io/node-selector: "kubernetes.azure.com/mode=user"
+    scheduler.alpha.kubernetes.io/defaultTolerations: '[{"Key": "kubernetes.azure.com/scalesetpriority", "Operator": "Equal", "Value": "spot", "Effect": "NoSchedule"}]'
