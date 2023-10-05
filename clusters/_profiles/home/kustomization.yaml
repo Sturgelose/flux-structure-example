@@ -5,3 +5,5 @@ resources:
 - grafana.yaml
 components:
   - ../_base
+patches:
+  - path: ingress-nginx-patch.yaml
