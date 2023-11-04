@@ -7,7 +7,7 @@ locals {
 
     # Flux repo configuration
     github_org = "Sturgelose"
-    github_repository = "flux-setup-extensible"
+    github_repository = "flux-structure-example"
 
     ## CLUSTER CONFIG
     cluster_name = "kind-home"
