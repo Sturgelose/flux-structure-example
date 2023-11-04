@@ -41,7 +41,7 @@ provider "registry.opentofu.org/hashicorp/tls" {
 
 provider "registry.opentofu.org/integrations/github" {
   version     = "5.41.0"
-  constraints = ">= 5.18.0"
+  constraints = ">= 5.18.0, ~> 5.41"
   hashes = [
     "h1:kcUwo3XrhkcDQwgynF/p57Hpp0GUcqf7KTzUNbSrN6k=",
     "zh:05ccd9a029cf34ebb2854a2aedc1b0ae969c9ba412a3be67d54f24bead85ec67",

@@ -1,17 +1,18 @@
 terraform {
-  required_version = ">=1.1.5"
+  required_version = "~>1.6.0"
 
   required_providers {
     flux = {
       source = "fluxcd/flux"
+      version = "~>1.1.2"
     }
     github = {
       source  = "integrations/github"
-      version = ">=5.18.0"
+      version = "~>5.41"
     }
     kind = {
       source = "tehcyx/kind"
-      version = ">=0.2.1"
+      version = "~>0.2.1"
     }
   }
 }
