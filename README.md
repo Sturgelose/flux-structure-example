@@ -1,6 +1,7 @@
-# Flux Platform
+# Flux Structure Example
 
- Find a full post explaining this here: <https://hackernoon.com/preview/WAa3PocfqtjGtpiwSKES>
+This repo contains a full example on how to structure your Flux Repository in a scalable and DRY way.
+Find a full post explaining this here: <https://hackernoon.com/preview/WAa3PocfqtjGtpiwSKES>
 
 ## Structure
 
