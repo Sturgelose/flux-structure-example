@@ -24,7 +24,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: datadog
-      version: '1.0.2'
+      version: '1.2.1'
   interval: 15m
   values:
     apiKeyExistingSecret: datadog-secret
@@ -32,16 +32,6 @@ spec:
     site: datadoghq.eu
     datadogMonitor:
       enabled: true
-    datadogCRDs:
-      migration:
-        datadogAgents:
-          version: v2alpha1 # Temporal config to tell the operator to use v2alpha1 as the ddAgent CRD
-          useCertManager: false
-          conversionWebhook:
-            enabled: false
-    env: # Datadog is not honoring the `site` value (https://github.com/DataDog/datadog-operator/issues/623)
-      - name: DD_URL
-        value: "https://api.datadoghq.eu"
 
     watchNamespaces:
      - "" # Watch all namespaces for CRDs

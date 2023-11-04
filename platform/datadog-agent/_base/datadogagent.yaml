@@ -24,7 +24,7 @@ spec:
     clusterChecks:
       enabled: true
     kubeStateMetricsCore:
-      enabled: false
+      enabled: true
     logCollection:
       containerCollectAll: false
       enabled: false
@@ -32,6 +32,6 @@ spec:
       enabled: false
     liveProcessCollection:
       enabled: false
-    # WARN: DO-1602 Need to limit metric label matrix to avoid cost multiplication
+    # Disable prometheus scrapping as we just want DataDog-based annotation scrapping
     prometheusScrape:
       enabled: false
