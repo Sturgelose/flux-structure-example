@@ -1,7 +1,7 @@
 # Flux Structure Example
 
 This repo contains a full example on how to structure your Flux Repository in a scalable and DRY way.
-Find a full post explaining this here: <https://hackernoon.com/preview/WAa3PocfqtjGtpiwSKES>
+Find a full post explaining this here: <https://hackernoon.com/how-to-structure-your-k8s-gitops-repository-at-scale-part-1>
 
 ## Structure
 
