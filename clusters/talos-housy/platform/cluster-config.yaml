@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: cluster-config
+data:
+    grafana_cloud_cluster_name: talos-housy
+    grafana_cloud_logs_url: https://logs-prod-012.grafana.net
+    grafana_cloud_prometheus_url: https://prometheus-prod-24-prod-eu-west-2.grafana.net
+    grafana_cloud_traces_url: https://tempo-prod-10-prod-eu-west-2.grafana.net
